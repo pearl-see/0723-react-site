@@ -10,11 +10,18 @@ export function SliderZone(){
   const sliders = [slider1, slider2, slider3];
   const handleArrowClick=(direction) => {
     let _index = currentIndex + direction;
-    if (_index <0){_index=0;}else if(_index>2){
+    if (_index <0){_index=0;}else if(_index>sliders.length-1){
       _index = 2;
     }
     setCurrentIndex(_index);
   }
+   //자동으로 움직움직
+  useEffect(()=>{
+    const interval = setInterval(()=>{
+      setCurrentIndex((idx)=> (idx+1)% sliders.length)
+    },3000);
+    return()=>clearInterval(interval);
+  },[sliders.length]);
   return (
     // <!-- 슬라이더Zone시작 -->
     <div id="sliderZone">
