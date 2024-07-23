@@ -1,8 +1,17 @@
-import "./styles/App.css"
+import './styles/App.css';
+import {TopArea} from './components/TopArea';
+import {BodyArea} from './components/BodyArea';
+import {BottomArea} from './components/BottomArea';
 
 function App() {
   return (
-   123
+    <div className="App">
+      <div id="site">
+        <TopArea/>
+        <BodyArea/>
+        <BottomArea/>
+      </div>
+    </div>
   );
 }
 
